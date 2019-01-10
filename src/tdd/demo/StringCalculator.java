@@ -18,15 +18,21 @@ public class StringCalculator {
         // TODO code application logic here
     }
     
-    public static void add(String numbers){
+    public static int add(String numbers){ // Changed void to int
+        int returnValue = 0;
         String[] numbersArray = numbers.split(",");
         if (numbersArray.length > 2) {
             throw new RuntimeException("Up to 2 numbers separated by commas (,) are allowed");
         } else {
             for (String number : numbersArray) {
-                Integer.parseInt(number); // If it is not a number, parseInt will throw an exception
+                if (!number.trim().isEmpty()) {
+                    returnValue += Integer.parseInt(number); // If it is not a number, parseInt will throw an exception
+                }
+                
             }
         }
+        
+        return returnValue; // Added return
     }
     
 }
