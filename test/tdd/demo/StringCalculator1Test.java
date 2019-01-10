@@ -5,6 +5,7 @@
  */
 package tdd.demo;
 
+import junit.framework.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,11 +15,18 @@ import static org.junit.Assert.*;
  */
 public class StringCalculator1Test {
     
-    public StringCalculator1Test() {
+    @Test(expected = RuntimeException.class)
+    public void whenMoreThan2NumbersAreUsedThenExceptionIsThrown() {
+        StringCalculator1.add("1,2,3");
     }
-
     @Test
-    public void testSomeMethod() {
+    public void when2NumbersAreUsedThenNoExceptionIsThrown(){
+        StringCalculator1.add("1,2");
+        Assert.assertTrue(true);
+    }
+    @Test(expected = RuntimeException.class)
+    public void whenNonNumberIsUsedThenExceptionIsThrown(){
+        StringCalculator1.add("1,X");
     }
     
 }
