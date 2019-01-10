@@ -20,7 +20,7 @@ public class StringCalculator {
     
     public static int add(String numbers){ // Changed void to int
         int returnValue = 0;
-        String[] numbersArray = numbers.split(",");
+        String[] numbersArray = numbers.split(",|n");
 //        if (numbersArray.length > 2) {
 //            throw new RuntimeException("Up to 2 numbers separated by commas (,) are allowed");
 //        } else {
