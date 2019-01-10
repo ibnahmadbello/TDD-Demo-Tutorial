@@ -9,7 +9,7 @@ package tdd.demo;
  *
  * @author ibnahmad
  */
-public class StringCalculator1 {
+public class StringCalculator {
 
     /**
      * @param args the command line arguments

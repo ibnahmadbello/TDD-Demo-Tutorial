@@ -13,20 +13,20 @@ import static org.junit.Assert.*;
  *
  * @author ibnahmad
  */
-public class StringCalculator1Test {
+public class StringCalculatorTest {
     
     @Test(expected = RuntimeException.class)
     public void whenMoreThan2NumbersAreUsedThenExceptionIsThrown() {
-        StringCalculator1.add("1,2,3");
+        StringCalculator.add("1,2,3");
     }
     @Test
     public void when2NumbersAreUsedThenNoExceptionIsThrown(){
-        StringCalculator1.add("1,2");
+        StringCalculator.add("1,2");
         Assert.assertTrue(true);
     }
     @Test(expected = RuntimeException.class)
     public void whenNonNumberIsUsedThenExceptionIsThrown(){
-        StringCalculator1.add("1,X");
+        StringCalculator.add("1,X");
     }
     
 }
