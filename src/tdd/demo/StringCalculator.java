@@ -18,21 +18,27 @@ public class StringCalculator {
         // TODO code application logic here
     }
     
-    public static int add(String numbers){ // Changed void to int
-        int returnValue = 0;
-        String[] numbersArray = numbers.split(",|n");
-//        if (numbersArray.length > 2) {
-//            throw new RuntimeException("Up to 2 numbers separated by commas (,) are allowed");
-//        } else {
-            for (String number : numbersArray) {
-                if (!number.trim().isEmpty()) {
-                    returnValue += Integer.parseInt(number); // If it is not a number, parseInt will throw an exception
-                }
-                
-            }
-//        }
+    public static int add(String numbers){ 
+        String delimiter = ",|n";
+        String numbersWithoutDelimiter = numbers;
+        if (numbers.startsWith("//")) {
+            int delimiterIndex = numbers.indexOf("//") + 2;
+            delimiter = numbers.substring(delimiterIndex, delimiterIndex + 1);
+            numbersWithoutDelimiter = numbers.substring(numbers.indexOf("n") + 1);
+        }
         
-        return returnValue; // Added return
+        return add(numbersWithoutDelimiter, delimiter);
+    }
+    
+    private static int add(String numbers, String delimiter){
+        int returnValue = 0;
+        String[] numbersArray = numbers.split(delimiter);
+        for (String number : numbersArray) {
+            if (!number.trim().isEmpty()) {
+                returnValue += Integer.parseInt(number.trim());
+            }
+        }
+        return returnValue;
     }
     
 }

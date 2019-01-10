@@ -55,4 +55,9 @@ public class StringCalculatorTest {
     public void whenNewLineIsUsedBetweenNumbersThenReturnValuesAreTheirSum(){
         Assert.assertEquals(3+6+15, StringCalculator.add("3,6n15"));
     }
+    
+    @Test
+    public void whenDelimiterIsSpecifiedThenItIsUsedToSeparateNumbers(){
+        Assert.assertEquals(3+6+15, StringCalculator.add("//;n3;6;15"));
+    }
 }
