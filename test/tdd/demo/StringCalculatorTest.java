@@ -15,9 +15,14 @@ import static org.junit.Assert.*;
  */
 public class StringCalculatorTest {
     
-    @Test(expected = RuntimeException.class)
-    public void whenMoreThan2NumbersAreUsedThenExceptionIsThrown() {
-        StringCalculator.add("1,2,3");
+//    @Test(expected = RuntimeException.class)
+//    public void whenMoreThan2NumbersAreUsedThenExceptionIsThrown() {
+//        StringCalculator.add("1,2,3");
+//    }
+    
+    @Test
+    public void whenAnyNumberOfNumbersIsUsedThenReturnValuesAreTheirSums(){
+        Assert.assertEquals(3+6+15+18+46+33, StringCalculator.add("3,6,15,18,46,33"));
     }
     
     @Test
